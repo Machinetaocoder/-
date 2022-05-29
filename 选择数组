@@ -1,0 +1,20 @@
+void reverse(int* nums, int left, int right)
+{
+	int m;
+	while (left < right)
+	{
+		nums[m] = nums[left];
+		nums[left] = nums[right];
+		nums[right] = nums[m];
+		left++;
+		right--;
+	}
+}
+void rotate(int* nums, int numsize, int k)
+{
+	if (k >= numsize)
+		k %= numsize;
+	reverse(nums, 0, numsize - k - 1);
+	reverse(nums, numsize - k, numsize - 1);
+	reverse(nums, 0, numsize - 1);
+}
